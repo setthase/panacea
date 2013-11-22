@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+// Initialize required libraries
+var program = require('commander');
+
+// Setup global options
+program
+  .version(require('../package.json').version)
+
+// Startup log messages listener
+program
+  .command('listen')
+  .option('-p, --port <port>', 'specify port on which program will be listening for incoming connections')
+  .option('-d, --db-port <db-port>', '')
+  .option('-H, --db-host <db-host>', '')
+  .option('-n, --db-name <db-name>', '')
+  .description('start listening for incoming messages')
+  .action(function (options) {
+    //if (program.port == null)
+    //  return process.stderr.write("\n  error: option `-p, --port <port>' need to be specified\n\n");
+
+
+    console.log(options.port);
+  });
+
+program.parse(process.argv);
